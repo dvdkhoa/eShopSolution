@@ -5,7 +5,7 @@ using System.Text;
 
 namespace eShop.Data.Entities
 {
-    public class Order
+    public class OrderDetail
     {
         public int Id { set; get; }
         public DateTime OrderDate { set; get; }
