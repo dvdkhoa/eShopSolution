@@ -15,11 +15,9 @@ namespace eShop.Data.Configurations
 
             builder.HasKey(x => new { x.OrderId, x.ProductId });
 
-            builder.HasOne(x => x.Order).WithMany(t => t.OrderDetails).HasForeignKey(f => f.OrderId);
+            builder.HasOne(x => x.Order).WithMany(x => x.OrderDetails).HasForeignKey(x => x.OrderId);
+            builder.HasOne(x => x.Product).WithMany(x => x.OrderDetails).HasForeignKey(x => x.ProductId);
 
-            builder.HasOne(x => x.Product).WithMany(t => t.OrderDetails).HasForeignKey(x => x.ProductId);
-
-            
         }
     }
 }

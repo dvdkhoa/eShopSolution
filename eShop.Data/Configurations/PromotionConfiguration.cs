@@ -7,15 +7,16 @@ using System.Text;
 
 namespace eShop.Data.Configurations
 {
-    public class OrderConfiguration : IEntityTypeConfiguration<Order>
+    class PromotionConfiguration : IEntityTypeConfiguration<Promotion>
     {
-        public void Configure(EntityTypeBuilder<Order> builder)
+        public void Configure(EntityTypeBuilder<Promotion> builder)
         {
-            builder.ToTable("Orders");
+            builder.ToTable("Promotions");
 
             builder.HasKey(x => x.Id);
+            builder.Property(x => x.Id).UseIdentityColumn();
 
-            builder.Property(x => x.ShipEmail).IsRequired().IsUnicode(false).HasMaxLength(50);
+            builder.Property(x => x.Name).IsRequired();
         }
     }
 }

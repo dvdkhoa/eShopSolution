@@ -5,17 +5,18 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace eShop.Data.Configurations
 {
-    public class OrderConfiguration : IEntityTypeConfiguration<Order>
+    class TransactionConfiguration : IEntityTypeConfiguration<Transaction>
     {
-        public void Configure(EntityTypeBuilder<Order> builder)
+        public void Configure(EntityTypeBuilder<Transaction> builder)
         {
-            builder.ToTable("Orders");
+            builder.ToTable("Transactions");
 
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.ShipEmail).IsRequired().IsUnicode(false).HasMaxLength(50);
+            builder.Property(x => x.Id).UseIdentityColumn();
         }
     }
 }
